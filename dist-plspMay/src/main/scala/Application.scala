@@ -9,16 +9,46 @@ object Application extends App {
     for( i<- 0 until xs.size; j <- i+1 until xs.size) yield Ne(xs(i), xs(j))
   }
 
-  val x1 = Variable("x1")
-  val x2 = Variable("x2")
-  val x3 = Variable("x3")
+  val x11 = Variable("x11")
+  val x12 = Variable("x12")
+  val x13 = Variable("x13")
 
-  val dom1 = Domain(Seq(1, 2, 3))
-  val dom2 = Domain(Seq(1, 2, 3))
+  val x21 = Variable("x21")
+  val x22 = Variable("x22")
+  val x23 = Variable("x23")
 
-  val c = allDiff(Seq(x1, x2, x3))
+  val x31 = Variable("x31")
+  val x32 = Variable("x32")
+  val x33 = Variable("x33")
 
-  val csp = CSP(Seq(x1, x2), Map(x1 -> dom1, x2->dom2), c)
+  val dom11 = Domain(Seq(1, 2, 3))
+  val dom12 = Domain(Seq(1, 2, 3))
+  val dom13 = Domain(Seq(1, 2, 3))
+
+  val dom21 = Domain(Seq(1, 2, 3))
+  val dom22 = Domain(Seq(1, 2, 3))
+  val dom23 = Domain(Seq(1, 2, 3))
+
+  val dom31 = Domain(Seq(1, 2, 3))
+  val dom32 = Domain(Seq(1, 2, 3))
+  val dom33 = Domain(Seq(1, 2, 3))
+
+  val c1 = allDiff(Seq(x11, x12, x13))
+  val c2 = allDiff(Seq(x21, x22, x23))
+  val c3 = allDiff(Seq(x31, x32, x33))
+
+  val csp = CSP(
+    Seq(x11, x12, x13, x21, x22, x23, x31, x32, x33),
+    Map(x11 -> dom11, x12->dom12),
+    c1
+  )
 
   csp.toSugar.foreach(println)
+}
+
+object Test extends App {
+
+  val csp = cspFactory.fromFile("CspFiles/PLS03.csp")
+
+  println(csp)
 }
