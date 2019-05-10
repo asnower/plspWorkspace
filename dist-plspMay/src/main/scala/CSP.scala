@@ -71,8 +71,11 @@ case class Assignment(amap: Map[Variable, Int]) {
 
 /* -------------------- Term -------------------- */
 /* num */
-// case class Num(n: Int) extends Term {
-// }
+case class Num(n: Int) extends Term {
+  override def vars: Set[Variable] = Set()
+  override def valuedWith(a: Assignment): Int = n
+
+}
 
 /* (abs Term) */
 case class Abs(t: Term) extends Term {
