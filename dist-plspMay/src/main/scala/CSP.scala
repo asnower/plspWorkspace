@@ -68,21 +68,176 @@ case class Assignment(amap: Map[Variable, Int]) {
   def toDoms: Map[Variable, Domain] = amap.map { xv => xv._1 -> Domain(Seq(xv._2)) }
 }
 
-/* x1とx2が異なる値をもつことを表す制約 */
-case class Ne(x1: Term, x2: Term) extends Constraint {
-  override def vars: Set[Variable] = x1.vars ++ x2.vars
-  override def isSatisfiedWith(a: Assignment): Boolean = x1.valuedWith(a) != x2.valuedWith(a)
+
+/* -------------------- Term -------------------- */
+/* num */
+// case class Num(n: Int) extends Term {
+// }
+
+/* (abs Term) */
+case class Abs(t: Term) extends Term {
+  override def vars: Set[Variable] = t.vars
+  override def valuedWith(a: Assignment): Int = t.valuedWith(a).abs
 }
 
-/* x1とx2が等しい値をもつことを表す制約 */
-case class Eq(x1: Term, x2: Term) extends Constraint {
-  override def vars: Set[Variable] = x1.vars ++ x2.vars
-  override def isSatisfiedWith(a: Assignment): Boolean = x1.valuedWith(a) == x2.valuedWith(a)
+/* (neg Term) */
+case class Neg(t: Term) extends Term {
+  override def vars: Set[Variable] = t.vars
+  override def valuedWith(a: Assignment): Int = -t.valuedWith(a)
 }
 
+/* (add Term*) */
+case class Add(ts: Seq[Term]) extends Term {
+  override def vars: Set[Variable] = {
+    var unionTs: Set[Variable] = Set()
+    for (t <- ts) {
+      unionTs = unionTs ++ t.vars
+    }
+    return unionTs
+  }
 
+  override def valuedWith(a: Assignment): Int = {
+    var sumTs = 0
+    for (t <- ts) {
+      sumTs += t.valuedWith(a)
+    }
+    return sumTs
+  }
+}
 
-/* ファクトリメソッド */
+/* (sub Term Term+) */
+case class Sub(t1: Term, ts:Seq[Term]) extends Term {
+  override def vars: Set[Variable] = {
+    var unionTs: Set[Variable] = Set()
+    for (t <- ts) {
+      unionTs = unionTs ++ t.vars
+    }
+    return unionTs
+  }
+
+  override def valuedWith(a: Assignment): Int = {
+    var sumTs = 0
+    for (t <- ts) {
+      sumTs += t.valuedWith(a)
+    }
+    return t1.valuedWith(a) - sumTs
+  }
+}
+
+/* (mul Term Term) */
+case class Mul(t1: Term, t2: Term) extends Term {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def valuedWith(a: Assignment): Int = t1.valuedWith(a) * t2.valuedWith(a)
+}
+
+/* (div Term Term) */
+case class Div(t1: Term, t2: Term) extends Term {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def valuedWith(a: Assignment): Int = t1.valuedWith(a) / t2.valuedWith(a)
+}
+
+/* (mod Term Term) */
+case class Mod(t1: Term, t2: Term) extends Term {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def valuedWith(a: Assignment): Int = t1.valuedWith(a) % t2.valuedWith(a)
+}
+
+/* (pow Term Term) */
+case class Pow(t1: Term, t2: Term) extends Term {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def valuedWith(a: Assignment): Int = Math.pow(t1.valuedWith(a), t2.valuedWith(a)).toInt
+}
+
+/* (min Term*) */
+case  class Min(ts: Seq[Term]) extends Term {
+  override def vars: Set[Variable] = {
+    var unionTs: Set[Variable] = Set()
+    for (t <- ts) {
+      unionTs = unionTs ++ t.vars
+    }
+    return unionTs
+  }
+  override def valuedWith(a: Assignment): Int = {
+    var minT = Int.MaxValue
+    for (t <- ts) {
+      if (minT > t.valuedWith(a)) {
+        minT = t.valuedWith(a)
+      }
+    }
+    return minT
+  }
+}
+
+/* (max Term*) */
+case  class Max(ts: Seq[Term]) extends Term {
+  override def vars: Set[Variable] = {
+    var unionTs: Set[Variable] = Set()
+    for (t <- ts) {
+      unionTs = unionTs ++ t.vars
+    }
+    return unionTs
+  }
+  override def valuedWith(a: Assignment): Int = {
+    var maxT = Int.MinValue
+    for (t <- ts) {
+      if (maxT < t.valuedWith(a)) {
+        maxT = t.valuedWith(a)
+      }
+    }
+    return maxT
+  }
+}
+
+/* -------------------- Constraint -------------------- */
+/* (eq Term Term) */
+case class Eq(t1: Term, t2: Term) extends Constraint {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def isSatisfiedWith(a: Assignment): Boolean = t1.valuedWith(a) == t2.valuedWith(a)
+}
+/* (ne Term Term) */
+case class Ne(t1: Term, t2: Term) extends Constraint {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def isSatisfiedWith(a: Assignment): Boolean = t1.valuedWith(a) != t2.valuedWith(a)
+}
+case class Le(t1: Term, t2: Term) extends Constraint {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def isSatisfiedWith(a: Assignment): Boolean = t1.valuedWith(a) <= t2.valuedWith(a)
+}
+/* (lt Term Term) */
+case class Lt(t1: Term, t2: Term) extends Constraint {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def isSatisfiedWith(a: Assignment): Boolean = t1.valuedWith(a) < t2.valuedWith(a)
+}
+/* (ge Term Term) */
+case class Ge(t1: Term, t2: Term) extends Constraint {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def isSatisfiedWith(a: Assignment): Boolean = t1.valuedWith(a) >= t2.valuedWith(a)
+}
+/* (gt Term Term) */
+case class Gt(t1: Term, t2: Term) extends Constraint {
+  override def vars: Set[Variable] = t1.vars ++ t2.vars
+  override def isSatisfiedWith(a: Assignment): Boolean = t1.valuedWith(a) > t2.valuedWith(a)
+}
+/* (AllDiff Term*) */
+case class AllDiff(ts: Seq[Term]) extends Constraint {
+  override def vars: Set[Variable] = {
+    var unionTs: Set[Variable] = Set()
+    for (t <- ts) {
+      unionTs = unionTs ++ t.vars
+    }
+    return unionTs
+  }
+  override def isSatisfiedWith(a: Assignment): Boolean = {
+    for (i <- 0 until ts.size; j <- i+1 until ts.size) {
+      if (ts(i).valuedWith(a) == ts(j).valuedWith(a)) {
+        return false
+      }
+    }
+    return true
+  }
+}
+
+/* -------------------- Factory Method -------------------- */
 object cspFactory {
   private[this] def varFactory(x: SIntVar): Variable = Variable(x.name)
   private[this] def domFactory(d: SDomain) = {
@@ -91,13 +246,32 @@ object cspFactory {
   }
   private[this] def termFactory(t: SugarCspTerm): Term = {
     t match {
-      case x: SIntVar => varFactory(x)
+        case x: SIntVar => varFactory(x)
+        case SAdd(ts: Seq[SugarCspTerm]) => Add(termsFactory(ts))
+        case SSub(ts: Seq[SugarCspTerm]) => Sub(termFactory(ts.head), termsFactory(ts.tail))
+        case SMul(t1: SugarCspTerm, t2:SugarCspTerm) => Mul(termFactory(t1), termFactory(t2))
+        case SDiv(t1: SugarCspTerm, t2:SugarCspTerm) => Div(termFactory(t1), termFactory(t2))
+        case SMod(t1: SugarCspTerm, t2:SugarCspTerm) => Mod(termFactory(t1), termFactory(t2))
+        case SPow(t1: SugarCspTerm, t2:SugarCspTerm) => Pow(termFactory(t1), termFactory(t2))
+        case SMin(ts: Seq[SugarCspTerm]) => Min(termsFactory(ts))
+        case SMax(ts: Seq[SugarCspTerm]) => Max(termsFactory(ts))
     }
+  }
+  private[this] def termsFactory(ts: Seq[SugarCspTerm]): Seq[Term] = {
+    var seqTerm: Seq[Term] = Seq()
+    for (t <- ts) {
+      seqTerm :+ termFactory(t)
+    }
+    return seqTerm
   }
   private[this] def constraintFactory(c: SugarCspConstraint): Constraint = {
     c match {
+      case SEq(t1: SIntVar, t2: SIntVar) => Eq(varFactory(t1), varFactory(t2))
       case SNe(t1: SIntVar, t2: SIntVar) => Ne(varFactory(t1), varFactory(t2))
-      case t: SEq => ???
+      case SLe(t1: SIntVar, t2: SIntVar) => Le(varFactory(t1), varFactory(t2))
+      case SLt(t1: SIntVar, t2: SIntVar) => Lt(varFactory(t1), varFactory(t2))
+      case SGe(t1: SIntVar, t2: SIntVar) => Ge(varFactory(t1), varFactory(t2))
+      case SGt(t1: SIntVar, t2: SIntVar) => Gt(varFactory(t1), varFactory(t2))
     }
   }
   def fromFile(fileName: String): CSP = {
@@ -110,6 +284,6 @@ object cspFactory {
       csp.doms += x -> domFactory(sp.domMap(x0))
     }
     csp.cons = sp.scons.map(constraintFactory)
-    csp
+    return csp
   }
 }

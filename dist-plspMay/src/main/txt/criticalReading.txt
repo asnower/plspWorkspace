@@ -1,0 +1,9 @@
+改善点
+
+以下、(http://shm.istc.kobe-u.ac.jp/prolang-sp/cp-parser.html)の4.1に書かれているクラス設計の表のことを表4.1と書く.
+
+1. 表4.1では, MinクラスとMaxクラスに2つのTermしか引数に取らないようになっている. 1個以上のTermならいくつでも引数に取れるようにするべきかと考える. 自分の実装ではそのようにした.
+
+2. allDiffと同様のallEqualクラスを作りたい. 自分はまだ実装していない.
+
+3. factory methodにtermsFactory(SugarCSPTermのSeqをTermのSeqに変換するメソッド)が欲しい. 自分の実装ではそのようにした.
