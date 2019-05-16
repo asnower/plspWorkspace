@@ -1,3 +1,4 @@
+
 改善点
 
 以下、(http://shm.istc.kobe-u.ac.jp/prolang-sp/cp-parser.html)の4.1に書かれているクラス設計の表のことを表4.1と書く.
