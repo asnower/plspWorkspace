@@ -58,6 +58,7 @@ object CSP {
 
 case class Assignment(amap: Map[Variable, Int]) {
   def apply(x: Variable) = amap(x)
+  //def apply(): Assignment = Assignment(Map.empty)
 
   def contains(x: Variable) = amap.contains(x)
 
@@ -66,6 +67,14 @@ case class Assignment(amap: Map[Variable, Int]) {
   def +(xv: Tuple2[Variable, Int]) = Assignment(amap + (xv._1 -> xv._2))
 
   def toDoms: Map[Variable, Domain] = amap.map { xv => xv._1 -> Domain(Seq(xv._2)) }
+
+  override def toString = {
+    amap.map{case (x, v) => s"v ${x.name} = $v"}.mkString("\n")
+  }
+}
+
+object Assignment {
+  def apply(): Assignment = Assignment(Map.empty)
 }
 
 
@@ -221,7 +230,7 @@ case class Gt(t1: Term, t2: Term) extends Constraint {
   override def vars: Set[Variable] = t1.vars ++ t2.vars
   override def isSatisfiedWith(a: Assignment): Boolean = t1.valuedWith(a) > t2.valuedWith(a)
 }
-/* (AllDiff Term*) */
+/* (alldifferent Term*) */
 case class AllDiff(ts: Seq[Term]) extends Constraint {
   override def vars: Set[Variable] = {
     var unionTs: Set[Variable] = Set()
@@ -231,11 +240,25 @@ case class AllDiff(ts: Seq[Term]) extends Constraint {
     return unionTs
   }
   override def isSatisfiedWith(a: Assignment): Boolean = {
-    for (i <- 0 until ts.size; j <- i+1 until ts.size) {
-      if (ts(i).valuedWith(a) == ts(j).valuedWith(a)) {
-        return false
+    // for (i <- 0 until ts.size; j <- i+1 until ts.size) {
+    //   if (ts(i).valuedWith(a) == ts(j).valuedWith(a)) {
+    //     return false
+    //   }
+    // }
+
+    for (i <- 0 until ts.size) {
+      println()
+      println()
+      println("hello")
+      println()
+      println()
+      for (j <- i+1 until ts.size) {
+        if (ts(i).valuedWith(a) == ts(j).valuedWith(a)) {
+          return false
+        }
       }
     }
+
     return true
   }
 }
@@ -269,12 +292,13 @@ object cspFactory {
   }
   private[this] def constraintFactory(c: SugarCspConstraint): Constraint = {
     c match {
-      case SEq(t1: SIntVar, t2: SIntVar) => Eq(varFactory(t1), varFactory(t2))
+      case SEq(t1: SugarCspTerm, t2: SugarCspTerm) => Eq(termFactory(t1), termFactory(t2))
       case SNe(t1: SIntVar, t2: SIntVar) => Ne(varFactory(t1), varFactory(t2))
       case SLe(t1: SIntVar, t2: SIntVar) => Le(varFactory(t1), varFactory(t2))
       case SLt(t1: SIntVar, t2: SIntVar) => Lt(varFactory(t1), varFactory(t2))
       case SGe(t1: SIntVar, t2: SIntVar) => Ge(varFactory(t1), varFactory(t2))
       case SGt(t1: SIntVar, t2: SIntVar) => Gt(varFactory(t1), varFactory(t2))
+      case SAllDiff(ts: Seq[SugarCspTerm]) => AllDiff(termsFactory(ts))
     }
   }
   def fromFile(fileName: String): CSP = {

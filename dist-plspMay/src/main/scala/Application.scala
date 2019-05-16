@@ -3,6 +3,7 @@
  * 作成したプログラムのアプリケーションを記述するためのファイル
  */
 
+// Test Application
 object Application extends App {
   val x = Variable(name="x")
   val y = Variable(name="y")
@@ -15,8 +16,12 @@ object Application extends App {
     Seq(c)
   )
   csp.toSugar.foreach(println)
+
+  println
+  println(csp)
 }
 
+// ラテン方陣
 object LatinSquare extends App {
 
   def allDiff(xs: Seq[Variable]) = {
@@ -55,9 +60,39 @@ object LatinSquare extends App {
   csp.toSugar.foreach(println)
 }
 
-object Test extends App {
-
-  val csp = cspFactory.fromFile("CspFiles/PLS03.csp")
-
+// file test
+object FileTest extends App {
+  val csp = cspFactory.fromFile("CspFiles/original01.csp")
   println(csp)
+  // val solver = new GT
+  // val solution = solver.solve(csp)
+
+  // if (solution.nonEmpty) {
+  //   println("s SAT")
+  //   println(solution.get)
+  // } else {
+  //   println("s UNSAT")
+  // }
+}
+
+// gt test
+object GtTest extends App {
+
+  gt03
+
+  def gt03 = {
+    val csp = cspFactory.fromFile("CspFiles/PLS04.csp")
+
+    val solver = new GT
+
+    val solution = solver.solve(csp)
+
+    if (solution.nonEmpty) {
+      println("s SAT")
+      println(solution.get)
+    } else {
+      println("s UNSAT")
+    }
+
+  }
 }

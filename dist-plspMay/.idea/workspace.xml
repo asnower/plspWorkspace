@@ -1,8 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fcee14c-e400-46ad-8711-e5e25c573c3b" name="Default Changelist" comment="">
+    <list default="true" id="a77cef8f-54f7-4cb8-adec-e59728fc2655" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CspFiles/original01.csp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Application.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Application.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/CSP.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/CSP.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/CspSolver.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/CspSolver.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/SugarCspLangParser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/SugarCspLangParser.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Abs$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Abs$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Abs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Abs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Add$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Add$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Add.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Add.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/AllDiff$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/AllDiff.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Application$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Application$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Application$delayedInit$body.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Application$delayedInit$body.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Assignment$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Assignment$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Assignment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Assignment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/CspSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/CspSolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Div$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Div$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Div.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Div.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Eq$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Eq$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Eq.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Eq.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Ge$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Ge$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Ge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Ge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Gt$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Gt$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Gt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Gt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/LatinSquare$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/LatinSquare$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/LatinSquare$delayedInit$body.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/LatinSquare$delayedInit$body.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Le$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Le$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Le.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Le.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Lt$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Lt$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Lt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Lt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Max$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Max$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Max.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Max.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Min$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Min$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Min.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Min.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Mod$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Mod$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Mod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Mod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Mul$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Mul$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Mul.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Mul.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Ne$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Ne$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Ne.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Ne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Neg$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Neg$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Neg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Neg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Num$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Num$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Num.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Num.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Pow$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Pow$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Pow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Pow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Sub$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Sub$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Sub.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Sub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/SugarCspLangParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/SugarCspLangParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Test$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Test$delayedInit$body.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/cspFactory$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/cspFactory$.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,34 +78,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/CSP.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1030">
-              <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
+            <state relative-caret-position="201">
+              <caret line="272" column="57" selection-start-line="272" selection-start-column="57" selection-end-line="272" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/Application.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CspFiles/original01.csp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/SugarCspLangParser.scala">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/Application.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/txt/criticalReading.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+            <state relative-caret-position="497">
+              <caret line="426" column="3" selection-start-line="426" selection-start-column="3" selection-end-line="426" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -65,18 +123,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/scala/LatinSquare.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/Application.scala" />
         <option value="$PROJECT_DIR$/src/main/txt/sugar.txt" />
         <option value="$PROJECT_DIR$/src/main/txt/criticalReading.txt" />
+        <option value="$PROJECT_DIR$/src/main/scala/CspSolver.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/Application.scala" />
+        <option value="$PROJECT_DIR$/CspFiles/original01.csp" />
+        <option value="$PROJECT_DIR$/src/main/scala/SugarCspLangParser.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/CSP.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="84" />
+    <option name="x" value="643" />
     <option name="y" value="23" />
-    <option name="width" value="1562" />
-    <option name="height" value="1277" />
+    <option name="width" value="1221" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -95,6 +156,11 @@
             <path>
               <item name="dist-plspmay" type="b2602c69:ProjectViewProjectNode" />
               <item name="dist-plspMay" type="462c0819:PsiDirectoryNode" />
+              <item name="CspFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dist-plspmay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dist-plspMay" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -102,6 +168,13 @@
               <item name="dist-plspMay" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dist-plspmay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dist-plspMay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -112,6 +185,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -127,9 +203,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LatinSquare">
+  <component name="RunManager" selected="Application.FileTest">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
+      <module name="plspMay" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="FileTest" />
+      <module name="plspMay" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GtTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="GtTest" />
       <module name="plspMay" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,8 +241,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LatinSquare" />
+        <item itemvalue="Application.FileTest" />
+        <item itemvalue="Application.GtTest" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.LatinSquare" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -219,10 +311,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="84" y="23" width="1562" height="1277" extended-state="0" />
+    <frame x="671" y="0" width="1249" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17960526" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25103563" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -231,7 +323,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3116981" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3237624" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -240,9 +332,9 @@
       <window_info anchor="bottom" id="SBT Console" order="8" weight="0.32923368" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="9" weight="0.32923368" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32923368" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32953367" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32923368" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.16679245" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.16633664" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -255,6 +347,9 @@
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csp" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/CspFiles/TEST02.csp">
       <provider selected="true" editor-type-id="text-editor" />
@@ -264,24 +359,11 @@
         <state relative-caret-position="-49036" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CspFiles/PLS03.csp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/LatinSquare.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/txt/sugar.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/SugarCspLangParser.scala">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/Application.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -292,19 +374,121 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CspFiles/PLS03.csp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/CspSolver.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/SugarCspLangParser.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="426" column="3" selection-start-line="426" selection-start-column="3" selection-end-line="426" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspFiles/original01.csp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/CSP.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1030">
-          <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
+        <state relative-caret-position="201">
+          <caret line="272" column="57" selection-start-line="272" selection-start-column="57" selection-end-line="272" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/Application.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
