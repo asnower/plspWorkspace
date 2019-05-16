@@ -5,7 +5,7 @@ abstract class CspSolver {
   def solve(csp: CSP): Option[Assignment]
 }
 
-class GT extends CspSolver {
+class GenerateTest extends CspSolver {
   def solve(csp: CSP): Option[Assignment] = {
     def gt(xs: Seq[Variable], partialAssign: Assignment): Option[Assignment] = {
 

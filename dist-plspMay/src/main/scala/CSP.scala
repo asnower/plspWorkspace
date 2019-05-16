@@ -237,6 +237,12 @@ case class AllDiff(ts: Seq[Term]) extends Constraint {
     for (t <- ts) {
       unionTs = unionTs ++ t.vars
     }
+    println()
+    println()
+    println("alldiffのvars")
+    println(unionTs)
+    println()
+    println()
     return unionTs
   }
   override def isSatisfiedWith(a: Assignment): Boolean = {
@@ -249,7 +255,7 @@ case class AllDiff(ts: Seq[Term]) extends Constraint {
     for (i <- 0 until ts.size) {
       println()
       println()
-      println("hello")
+      println("alldiffのis satisfied with")
       println()
       println()
       for (j <- i+1 until ts.size) {
@@ -298,7 +304,7 @@ object cspFactory {
       case SLt(t1: SIntVar, t2: SIntVar) => Lt(varFactory(t1), varFactory(t2))
       case SGe(t1: SIntVar, t2: SIntVar) => Ge(varFactory(t1), varFactory(t2))
       case SGt(t1: SIntVar, t2: SIntVar) => Gt(varFactory(t1), varFactory(t2))
-      case SAllDiff(ts: Seq[SugarCspTerm]) => AllDiff(termsFactory(ts))
+      case SAllDiff(ts: Seq[SugarCspTerm]) => AllDiff(ts.map(termFactory(_)))
     }
   }
   def fromFile(fileName: String): CSP = {

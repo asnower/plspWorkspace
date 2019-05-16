@@ -63,36 +63,15 @@ object LatinSquare extends App {
 // file test
 object FileTest extends App {
   val csp = cspFactory.fromFile("CspFiles/original01.csp")
-  println(csp)
-  // val solver = new GT
-  // val solution = solver.solve(csp)
 
-  // if (solution.nonEmpty) {
-  //   println("s SAT")
-  //   println(solution.get)
-  // } else {
-  //   println("s UNSAT")
-  // }
-}
+  val solver = new GenerateTest
+  val solution = solver.solve(csp)
 
-// gt test
-object GtTest extends App {
-
-  gt03
-
-  def gt03 = {
-    val csp = cspFactory.fromFile("CspFiles/PLS04.csp")
-
-    val solver = new GT
-
-    val solution = solver.solve(csp)
-
-    if (solution.nonEmpty) {
-      println("s SAT")
-      println(solution.get)
-    } else {
-      println("s UNSAT")
-    }
-
+  if (solution.nonEmpty) {
+    println("s SAT")
+    println(solution.get)
+  } else {
+    println("s UNSAT")
   }
 }
+

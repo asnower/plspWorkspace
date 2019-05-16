@@ -413,18 +413,19 @@ class SugarCspLangParser extends JavaTokenParsers {
         case bvar => str2BoolVar(bvar)
       } |
       "(" ~> ("eq" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SEq(term1, term2) } |
-      "(" ~> ("=" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SEq(term1, term2) }  |
+      "(" ~> ("="  ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SEq(term1, term2) } |
       "(" ~> ("ne" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SNe(term1, term2) } |
       "(" ~> ("!=" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SNe(term1, term2) } |
       "(" ~> ("le" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SLe(term1, term2) } |
       "(" ~> ("<=" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SLe(term1, term2) } |
       "(" ~> ("lt" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SLt(term1, term2) } |
-      "(" ~> ("<" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SLt(term1, term2) }  |
+      "(" ~> ("<"  ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SLt(term1, term2) } |
       "(" ~> ("ge" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SGe(term1, term2) } |
       "(" ~> (">=" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SGe(term1, term2) } |
       "(" ~> ("gt" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SGt(term1, term2) } |
-      "(" ~> (">" ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SGt(term1, term2) } |
+      "(" ~> (">"  ~ SugarTerm ~ SugarTerm) <~ ")" ^^ { case op ~ term1 ~ term2 => SGt(term1, term2) } |
       "(" ~> ("alldifferent" ~  rep(SugarTerm)) <~ ")" ^^ { case op ~ terms => SAllDiff(terms) }
+
       //AllDifferentConstraint
 
   //def AllDifferentConstraint: Parser[SugarCspConstraint] = {
