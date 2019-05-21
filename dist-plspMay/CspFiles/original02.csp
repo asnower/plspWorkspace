@@ -1,9 +1,6 @@
 (int x1 1 100)
 (int x2 1 100)
 (int x3 1 100)
-(int x4 1 100)
-(int x5 1 100)
-(int x6 1 100)
-(int x7 1 100)
 
 (not (eq x1 x2))
+(not (eq x1 x3))

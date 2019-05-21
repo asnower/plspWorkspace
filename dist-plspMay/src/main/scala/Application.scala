@@ -2,22 +2,49 @@
  * 作成したプログラムのアプリケーションを記述するためのファイル
  */
 
-// Test Application
-object Application extends App {
-  val x = Variable(name="x")
-  val y = Variable(name="y")
-  val dom = Domain(Seq(1, 2, 3))
-  val c = Ne(x, y)
+object plspSolver {
+  def main(args: Array[String]): Unit = {
 
-  val csp = CSP(
-    Seq(x, y),
-    Map(x -> dom, y->dom),
-    Seq(c)
-  )
-  csp.toSugar.foreach(println)
+    val id: String = "199x223x" // 学籍番号を書く
 
-  println
-  println(csp)
+    val fileName = args(0)
+
+    println(s"ID: $id")
+    println(s"CSP: $fileName")
+
+    val csp = cspFactory.fromFile(fileName)
+
+    println("c Parse Done.")
+
+    val solver: CspSolver = new BackTrack // new "自分ソルバークラス" を書く
+    val solution = solver.solve(csp)
+    if (solution.nonEmpty) {
+      println("s SAT")
+      printAssignment(solution.get)
+    } else {
+      println("s UNSAT")
+    }
+
+  }
+
+  def printAssignment(a: Assignment) = {
+    a.amap.map { case (x, v) => s"v ${x.name} = $v" }.foreach(println)
+  }
+}
+
+// file test
+object FileTest extends App {
+  val csp = cspFactory.fromFile("CspFiles/PLS05.csp")
+
+  val solver = new BackTrack
+  val solution = solver.solve(csp)
+
+  if (solution.nonEmpty) {
+    println("s SAT")
+    println(solution.get)
+  } else {
+    println("s UNSAT")
+  }
 }
 
 // ラテン方陣
@@ -58,19 +85,3 @@ object LatinSquare extends App {
 
   csp.toSugar.foreach(println)
 }
-
-// file test
-object FileTest extends App {
-  val csp = cspFactory.fromFile("CspFiles/original02.csp")
-
-  val solver = new GenerateTest
-  val solution = solver.solve(csp)
-
-  if (solution.nonEmpty) {
-    println("s SAT")
-    println(solution.get)
-  } else {
-    println("s UNSAT")
-  }
-}
-

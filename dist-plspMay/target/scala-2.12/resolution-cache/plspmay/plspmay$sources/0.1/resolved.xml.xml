@@ -4,7 +4,7 @@
 		module="plspmay$sources"
 		revision="0.1"
 		status="integration"
-		publication="20190507152919"
+		publication="20190521163954"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
