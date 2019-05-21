@@ -26,6 +26,10 @@ abstract class Constraint extends Expression {
   def isSatisfiedWith(a: Assignment): Boolean
 }
 
+abstract class LogicalFormula extends  Constraint {
+  def vars: Set[Variable]
+  def isSatisfiedWith(a: Assignment): Boolean
+}
 
 case class CSP(
                 var vars: Seq[Variable],
@@ -161,7 +165,7 @@ case class Pow(t1: Term, t2: Term) extends Term {
 }
 
 /* (min Term*) */
-case  class Min(ts: Seq[Term]) extends Term {
+case class Min(ts: Seq[Term]) extends Term {
   override def vars: Set[Variable] = {
     var unionTs: Set[Variable] = Set()
     for (t <- ts) {
@@ -181,7 +185,7 @@ case  class Min(ts: Seq[Term]) extends Term {
 }
 
 /* (max Term*) */
-case  class Max(ts: Seq[Term]) extends Term {
+case class Max(ts: Seq[Term]) extends Term {
   override def vars: Set[Variable] = {
     var unionTs: Set[Variable] = Set()
     for (t <- ts) {
@@ -201,6 +205,76 @@ case  class Max(ts: Seq[Term]) extends Term {
 }
 
 /* -------------------- Constraint -------------------- */
+/* (not c) */
+case class Not(c: Constraint) extends Constraint {
+  override def vars: Set[Variable] = Set()
+  override def isSatisfiedWith(a: Assignment): Boolean = {
+    if (c.isSatisfiedWith(a)) {
+      return false
+    }
+    return true
+  }
+}
+/* (or c*) */
+case class Or(cs: Seq[Constraint]) extends  Constraint {
+  override def vars: Set[Variable] = Set()
+  override def isSatisfiedWith(a: Assignment): Boolean = {
+    for (c <- cs) {
+      if (c.isSatisfiedWith(a)) {
+        return true
+      }
+    }
+    return false
+  }
+}
+/* (and c*) */
+case class And(cs: Seq[Constraint]) extends  Constraint {
+  override def vars: Set[Variable] = Set()
+  override def isSatisfiedWith(a: Assignment): Boolean = {
+    for (c <- cs) {
+      if (!(c.isSatisfiedWith(a))) {
+        return false
+      }
+    }
+    return true
+  }
+}
+/* (imp c1 c2) */
+case class Imp(c1: Constraint, c2: Constraint) extends Constraint {
+  override def vars: Set[Variable] = Set()
+  override def isSatisfiedWith(a: Assignment): Boolean = {
+    if ((c1.isSatisfiedWith(a)) && !(c2.isSatisfiedWith(a))) {
+      return false
+    }
+    return true
+  }
+}
+/* (xor c1 c2) */
+case class Xor(c1: Constraint, c2: Constraint) extends Constraint {
+  override def vars: Set[Variable] = Set()
+  override def isSatisfiedWith(a: Assignment): Boolean = {
+    if (c1.isSatisfiedWith(a) && !(c2.isSatisfiedWith(a))) {
+      return true
+    }
+    if (!(c1.isSatisfiedWith(a)) && c2.isSatisfiedWith(a)) {
+      return true
+    }
+    return false
+  }
+}
+/* (iff c1 c2) */
+case class Iff(c1: Constraint, c2: Constraint) extends Constraint {
+  override def vars: Set[Variable] = Set()
+  override def isSatisfiedWith(a: Assignment): Boolean = {
+    if (c1.isSatisfiedWith(a) && !(c2.isSatisfiedWith(a))) {
+      return false
+    }
+    if (!(c1.isSatisfiedWith(a)) && c2.isSatisfiedWith(a)) {
+      return false
+    }
+    return true
+  }
+}
 /* (eq Term Term) */
 case class Eq(t1: Term, t2: Term) extends Constraint {
   override def vars: Set[Variable] = t1.vars ++ t2.vars
@@ -237,34 +311,16 @@ case class AllDiff(ts: Seq[Term]) extends Constraint {
     for (t <- ts) {
       unionTs = unionTs ++ t.vars
     }
-    println()
-    println()
-    println("alldiffのvars")
-    println(unionTs)
-    println()
-    println()
     return unionTs
   }
   override def isSatisfiedWith(a: Assignment): Boolean = {
-    // for (i <- 0 until ts.size; j <- i+1 until ts.size) {
-    //   if (ts(i).valuedWith(a) == ts(j).valuedWith(a)) {
-    //     return false
-    //   }
-    // }
-
     for (i <- 0 until ts.size) {
-      println()
-      println()
-      println("alldiffのis satisfied with")
-      println()
-      println()
       for (j <- i+1 until ts.size) {
         if (ts(i).valuedWith(a) == ts(j).valuedWith(a)) {
           return false
         }
       }
     }
-
     return true
   }
 }
@@ -278,32 +334,33 @@ object cspFactory {
   }
   private[this] def termFactory(t: SugarCspTerm): Term = {
     t match {
+        case n: SNum => Num(n.n)
         case x: SIntVar => varFactory(x)
-        case SAdd(ts: Seq[SugarCspTerm]) => Add(termsFactory(ts))
-        case SSub(ts: Seq[SugarCspTerm]) => Sub(termFactory(ts.head), termsFactory(ts.tail))
+        case SNeg(t: SugarCspTerm) => Neg(termFactory(t))
+        case SAdd(ts: Seq[SugarCspTerm]) => Add(ts.map(termFactory(_)))
+        case SSub(ts: Seq[SugarCspTerm]) => Sub(termFactory(ts.head), ts.tail.map(termFactory(_)))
         case SMul(t1: SugarCspTerm, t2:SugarCspTerm) => Mul(termFactory(t1), termFactory(t2))
         case SDiv(t1: SugarCspTerm, t2:SugarCspTerm) => Div(termFactory(t1), termFactory(t2))
         case SMod(t1: SugarCspTerm, t2:SugarCspTerm) => Mod(termFactory(t1), termFactory(t2))
         case SPow(t1: SugarCspTerm, t2:SugarCspTerm) => Pow(termFactory(t1), termFactory(t2))
-        case SMin(ts: Seq[SugarCspTerm]) => Min(termsFactory(ts))
-        case SMax(ts: Seq[SugarCspTerm]) => Max(termsFactory(ts))
+        case SMin(ts: Seq[SugarCspTerm]) => Min(ts.map(termFactory(_)))
+        case SMax(ts: Seq[SugarCspTerm]) => Max(ts.map(termFactory(_)))
     }
-  }
-  private[this] def termsFactory(ts: Seq[SugarCspTerm]): Seq[Term] = {
-    var seqTerm: Seq[Term] = Seq()
-    for (t <- ts) {
-      seqTerm :+ termFactory(t)
-    }
-    return seqTerm
   }
   private[this] def constraintFactory(c: SugarCspConstraint): Constraint = {
     c match {
+      case SNot(c: SugarCspConstraint) => Not(constraintFactory(c))
+      case SOr(cs: Seq[SugarCspConstraint]) => Or(cs.map(constraintFactory(_)))
+      case SAnd(cs: Seq[SugarCspConstraint]) => And(cs.map(constraintFactory(_)))
+      case SImp(c1: SugarCspConstraint, c2: SugarCspConstraint) => Imp(constraintFactory(c1), constraintFactory(c2))
+      case SXor(c1: SugarCspConstraint, c2: SugarCspConstraint) => Xor(constraintFactory(c1), constraintFactory(c2))
+      case SIff(c1: SugarCspConstraint, c2: SugarCspConstraint) => Iff(constraintFactory(c1), constraintFactory(c2))
       case SEq(t1: SugarCspTerm, t2: SugarCspTerm) => Eq(termFactory(t1), termFactory(t2))
-      case SNe(t1: SIntVar, t2: SIntVar) => Ne(varFactory(t1), varFactory(t2))
-      case SLe(t1: SIntVar, t2: SIntVar) => Le(varFactory(t1), varFactory(t2))
-      case SLt(t1: SIntVar, t2: SIntVar) => Lt(varFactory(t1), varFactory(t2))
-      case SGe(t1: SIntVar, t2: SIntVar) => Ge(varFactory(t1), varFactory(t2))
-      case SGt(t1: SIntVar, t2: SIntVar) => Gt(varFactory(t1), varFactory(t2))
+      case SNe(t1: SugarCspTerm, t2: SugarCspTerm) => Ne(termFactory(t1), termFactory(t2))
+      case SLe(t1: SugarCspTerm, t2: SugarCspTerm) => Le(termFactory(t1), termFactory(t2))
+      case SLt(t1: SugarCspTerm, t2: SugarCspTerm) => Lt(termFactory(t1), termFactory(t2))
+      case SGe(t1: SugarCspTerm, t2: SugarCspTerm) => Ge(termFactory(t1), termFactory(t2))
+      case SGt(t1: SugarCspTerm, t2: SugarCspTerm) => Gt(termFactory(t1), termFactory(t2))
       case SAllDiff(ts: Seq[SugarCspTerm]) => AllDiff(ts.map(termFactory(_)))
     }
   }

@@ -1,4 +1,3 @@
-
 /*
  * 作成したプログラムのアプリケーションを記述するためのファイル
  */
@@ -62,7 +61,7 @@ object LatinSquare extends App {
 
 // file test
 object FileTest extends App {
-  val csp = cspFactory.fromFile("CspFiles/original01.csp")
+  val csp = cspFactory.fromFile("CspFiles/original02.csp")
 
   val solver = new GenerateTest
   val solution = solver.solve(csp)
